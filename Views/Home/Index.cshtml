@@ -1,0 +1,15 @@
+﻿@model IList<Produto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach (var item in Model)
+{
+<div>   
+    <img src="@String.Format("/img/{0}.jpg", item.Id)" width="200px" height="200px"/>
+    <h5><a asp-controller="Home" asp-action="Produto" asp-route-id="@item.Id"><strong>@item.Nome</strong></a></h5>
+    <p>Valor: R$ @item.Valor</p>
+    <p>Unidades Disponíveis: @item.Estoque</p><br><br>
+</div>
+}
+
